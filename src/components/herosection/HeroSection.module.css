@@ -1,0 +1,155 @@
+.heroSection {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  align-items: center;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 56px 32px;
+  min-height: 560px;
+  background: linear-gradient(90deg, #fffaf4 0%, #ffffff 100%);
+  border-radius: 32px;
+  box-shadow: 0 24px 60px rgba(196, 78, 44, 0.08);
+  overflow: hidden;
+}
+
+.heroLeftSection {
+  max-width: 560px;
+}
+
+.newArrivals {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--light-bg);
+  color: var(--primary-color);
+  border-radius: 999px;
+  padding: 10px 16px;
+  margin-bottom: 22px;
+  box-shadow: inset 0 0 0 1px rgba(196, 78, 44, 0.08);
+}
+
+.newArrivals p {
+  margin: 0;
+  line-height: 1;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.heroHeading h1 {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(3rem, 4.3vw, 4.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.firstH1 {
+  color: var(--text-dark);
+}
+
+.secondH1 {
+  color: var(--primary-color);
+}
+
+.heroSubheading {
+  margin-top: 18px;
+}
+
+.heroP {
+  margin: 0;
+  color: var(--neutral-color);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.shopNowBtn {
+  margin-top: 28px;
+}
+
+.shopNowBtn button {
+  border: none;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 999px;
+  padding: 14px 26px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 12px 24px rgba(196, 78, 44, 0.24);
+}
+
+.shopNowBtn button:hover {
+  background: #b34122;
+  transform: translateY(-2px);
+}
+
+.heroRightSection {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroRightSection::before {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(196, 78, 44, 0.08) 0%, rgba(196, 78, 44, 0) 70%);
+  z-index: 0;
+}
+
+.heroRightSection img {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 520px);
+  max-width: 520px;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 35px rgba(44, 44, 44, 0.18));
+}
+
+@media (max-width: 900px) {
+  .heroSection {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 48px 24px;
+  }
+
+  .heroLeftSection {
+    max-width: 100%;
+  }
+
+  .newArrivals {
+    margin: 0 auto 18px;
+  }
+
+  .heroP {
+    max-width: 100%;
+  }
+
+  .heroRightSection {
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroSection {
+    margin: 24px 10px;
+    border-radius: 24px;
+  }
+
+  .heroHeading h1 {
+    font-size: 2.8rem;
+  }
+
+  .heroP {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .shopNowBtn button {
+    width: 100%;
+  }
+}
