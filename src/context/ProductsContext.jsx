@@ -1,16 +1,21 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { getProducts } from "../api/productsApiService";
-import { ProductsContext } from "./CreateContext";
+
+export const ProductsContext = createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
   useEffect(() => {
     getProducts().then((data) => {
       setProducts(data.products);
+      setLoading(false);
     });
   }, []);
+  
   return (
-    <ProductsContext.Provider value={products}>
+    <ProductsContext.Provider value={{ products, loading }}>
       {children}
     </ProductsContext.Provider>
   );

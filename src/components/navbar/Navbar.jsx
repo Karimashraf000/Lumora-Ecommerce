@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import { IoSearchSharp } from "react-icons/io5";
 import { MdFavoriteBorder } from "react-icons/md";
 import { CiShoppingCart } from "react-icons/ci";
@@ -13,34 +14,26 @@ export default function Navbar() {
             <h1>Lumora</h1>
           </Link>
         </div>
-        <div className={styles.searchField}>
-          <form>
-            <input type="text" placeholder="search-products" className={styles.inputField} />
-            <button className={styles.searchBtn}>
-              <IoSearchSharp />
-            </button>
-          </form>
-        </div>
-        <div className={styles.navLinks}>
+        <nav className={styles.navLinks}>
           <Link to="/" className={styles.homeLink}>
             Home
           </Link>
+          <Link to="/search" className={styles.contactLink}>
+            Shop
+          </Link>
           <Link to="/about" className={styles.aboutLink}>
-            about
+            About
           </Link>
-          <Link to="/contact" className={styles.contactLink}>
-            contact
-          </Link>
-        </div>
+        </nav>
         <div className={styles.navIcons}>
-          <div className={styles.favorites}>
+          <Link to="/favorites" className={styles.favorites}>
             <MdFavoriteBorder />
             <span className={styles.count}>0</span>
-          </div>
-          <div className={styles.cart}>
+          </Link>
+          <Link to="/checkout" className={styles.cart}>
             <CiShoppingCart />
             <span className={styles.count}>0</span>
-          </div>
+          </Link>
         </div>
       </div>
     </header>

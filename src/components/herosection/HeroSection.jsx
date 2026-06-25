@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./HeroSection.module.css";
 import Headimg from "../../assets/headphones-audio-listen.jpeg"
 
 function HeroSection() {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.heroSection} id="hero">
       <div className={styles.heroLeftSection}>
@@ -25,7 +28,7 @@ function HeroSection() {
         </div>
 
         <div className={styles.shopNowBtn}>
-          <button>Shop Now</button>
+          <button onClick={() => navigate("/search")}>Shop Collection</button>
         </div>
       </div>
 
@@ -34,6 +37,7 @@ function HeroSection() {
           src={Headimg}
           alt={ "Hero product"}
         />
+        <div className={styles.accentCircle}></div>
       </div>
     </div>
   );
