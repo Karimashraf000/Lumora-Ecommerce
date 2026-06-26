@@ -1,8 +1,12 @@
+import api from "./axios"
 
-export const  getProducts = async () => {
-    const response = await fetch(`https://dummyjson.com/products`);
-      if (!response.ok) {
-    throw new Error("Failed to fetch products");
+export const getProducts = async () => {
+  try {
+    const response = await api.get("/products");
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
   }
-    return response.json();
-}
+};

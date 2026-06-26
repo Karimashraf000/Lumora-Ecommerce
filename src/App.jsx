@@ -9,11 +9,13 @@ import CheckOut from "./pages/CheckOut";
 import RouteNotFound from "./pages/RouteNotFound";
 import ProductDetails from "./pages/ProductDetails";
 import { ProductsProvider } from "./context/ProductsContext";
+import ScrollToTop from "./ScroolToTop";
 function App() {
   return (
     <ProductsProvider>
       <div className="container">
         <Navbar />
+        <ScrollToTop/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

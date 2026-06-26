@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
-
 import { IoSearchSharp } from "react-icons/io5";
 import { MdFavoriteBorder } from "react-icons/md";
 import { CiShoppingCart } from "react-icons/ci";
 import styles from "./Navbar.module.css";
+import { useContext } from "react";
+import { ProductsContext } from "../../context/ProductsContext";
 
 export default function Navbar() {
+  const {favoriteProducts} = useContext(ProductsContext)
   return (
     <header className={styles.header}>
       <div className={styles.headerContainer}>
@@ -28,7 +30,7 @@ export default function Navbar() {
         <div className={styles.navIcons}>
           <Link to="/favorites" className={styles.favorites}>
             <MdFavoriteBorder />
-            <span className={styles.count}>0</span>
+            <span className={styles.count}>{favoriteProducts.length}</span>
           </Link>
           <Link to="/checkout" className={styles.cart}>
             <CiShoppingCart />
