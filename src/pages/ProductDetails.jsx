@@ -1,7 +1,12 @@
 import { useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ProductsContext } from "../context/ProductsContext";
-import { IoArrowBack, IoCartOutline, IoHeartOutline } from "react-icons/io5";
+import {
+  IoArrowBack,
+  IoCartOutline,
+  IoHeartOutline,
+  IoHeartSharp,
+} from "react-icons/io5";
 import styles from "./ProductDetails.module.css";
 
 export default function ProductDetails() {
@@ -25,6 +30,7 @@ export default function ProductDetails() {
   if (loading) {
     return <div className={styles.loading}>Loading product details...</div>;
   }
+  const isFavorite = favoriteProducts.some((item) => item.id === product.id);
   if (!product) {
     return (
       <div className={styles.notFound}>
@@ -78,7 +84,7 @@ export default function ProductDetails() {
                 handleFavorites(product);
               }}
             >
-              <IoHeartOutline />
+              {isFavorite ? <IoHeartSharp /> : <IoHeartOutline />}
             </button>
           </div>
           <div className={styles.productSpecs}>
