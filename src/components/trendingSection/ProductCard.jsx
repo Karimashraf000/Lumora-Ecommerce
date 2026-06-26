@@ -9,6 +9,7 @@ export default function ProductCard({
   imgUrl,
   description,
 }) {
+
   return (
     <Link to={`/products/${id}`} className={styles.cardLink}>
       <div className={styles.card}>
