@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { ProductsContext } from "../../context/ProductsContext";
 
 export default function Navbar() {
-  const {favoriteProducts} = useContext(ProductsContext)
+  const { favoriteProducts, cartItems } = useContext(ProductsContext);
   return (
     <header className={styles.header}>
       <div className={styles.headerContainer}>
@@ -32,9 +32,9 @@ export default function Navbar() {
             <MdFavoriteBorder />
             <span className={styles.count}>{favoriteProducts.length}</span>
           </Link>
-          <Link to="/checkout" className={styles.cart}>
+          <Link to="/cart" className={styles.cart}>
             <CiShoppingCart />
-            <span className={styles.count}>0</span>
+            <span className={styles.count}>{cartItems.length}</span>
           </Link>
         </div>
       </div>

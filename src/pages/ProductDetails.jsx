@@ -7,13 +7,20 @@ import {
   IoHeartOutline,
   IoHeartSharp,
 } from "react-icons/io5";
+import { BsCartCheckFill } from "react-icons/bs";
 import styles from "./ProductDetails.module.css";
 
 export default function ProductDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { products, loading, favoriteProducts, setFavoriteProducts } =
-    useContext(ProductsContext);
+  const {
+    products,
+    loading,
+    favoriteProducts,
+    setFavoriteProducts,
+    cartItems,
+    setCartItems,
+  } = useContext(ProductsContext);
 
   const handleFavorites = (product) => {
     setFavoriteProducts((prev) => {
@@ -39,6 +46,17 @@ export default function ProductDetails() {
       </div>
     );
   }
+  const isInCart = cartItems.some((item) => item.id === product.id);
+  const handleCartItems = (product) => {
+    return setCartItems((prev) => {
+      const existInCart = prev.some((item) => item.id === product.id);
+      if (existInCart) {
+        return prev.filter((item) => item.id !== product.id);
+      } else {
+        return [...prev, product];
+      }
+    });
+  };
   return (
     <div className={styles.detailsPage}>
       <button className={styles.backBtn} onClick={() => navigate(-1)}>
@@ -75,8 +93,21 @@ export default function ProductDetails() {
           </div>
           <p className={styles.description}>{product.description}</p>
           <div className={styles.actionButtons}>
-            <button className={styles.addToCart}>
-              <IoCartOutline /> Add to Cart
+            <button
+              className={styles.addToCart}
+              onClick={() => {
+                handleCartItems(product);
+              }}
+            >
+              {isInCart ? (
+                <>
+                  <BsCartCheckFill /> Added to Cart
+                </>
+              ) : (
+                <>
+                  <IoCartOutline /> Add to Cart
+                </>
+              )}
             </button>
             <button
               className={styles.favoriteBtn}

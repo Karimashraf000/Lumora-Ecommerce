@@ -5,7 +5,7 @@ import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Search from "./pages/Search";
 import Favorites from "./pages/Favorites";
-import CheckOut from "./pages/CheckOut";
+import Cart from "./pages/Cart";
 import RouteNotFound from "./pages/RouteNotFound";
 import ProductDetails from "./pages/ProductDetails";
 import { ProductsProvider } from "./context/ProductsContext";
@@ -15,13 +15,13 @@ function App() {
     <ProductsProvider>
       <div className="container">
         <Navbar />
-        <ScrollToTop/>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/search" element={<Search />} />
           <Route path="/favorites" element={<Favorites />} />
-          <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="*" element={<RouteNotFound />} />
         </Routes>

@@ -7,6 +7,7 @@ export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [favoriteProducts, setFavoriteProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
     getProducts().then((data) => {
       setProducts(data.products);
@@ -16,7 +17,14 @@ export const ProductsProvider = ({ children }) => {
 
   return (
     <ProductsContext.Provider
-      value={{ products, loading, favoriteProducts, setFavoriteProducts }}
+      value={{
+        products,
+        loading,
+        favoriteProducts,
+        setFavoriteProducts,
+        cartItems,
+        setCartItems,
+      }}
     >
       {children}
     </ProductsContext.Provider>
