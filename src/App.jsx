@@ -9,7 +9,7 @@ import Cart from "./pages/Cart";
 import RouteNotFound from "./pages/RouteNotFound";
 import ProductDetails from "./pages/ProductDetails";
 import { ProductsProvider } from "./context/ProductsContext";
-import ScrollToTop from "./ScroolToTop";
+import ScrollToTop from "./ScrollToTop";
 function App() {
   return (
     <ProductsProvider>

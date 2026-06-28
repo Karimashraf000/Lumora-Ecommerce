@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ProductsContext } from "../context/ProductsContext";
 import { IoAdd, IoRemove, IoTrashOutline, IoArrowBack } from "react-icons/io5";
